@@ -4,13 +4,13 @@ let app = express.Router();
 
 var Client = require('node-rest-client').Client;
 var client = new Client();
-var async = require('async');
+require('dotenv').config();
 
 var obj = {
     "Hello":"Welcome to the ReST API Project. This api endpoint gives information about cities in Canada. Get started at \'/api\'"
 }
 
-var APIKEY = process.env.weatherApiKey || require('../../api_key').API_KEY;
+var APIKEY = process.env.WEATHER_API_KEY;
 
 
 app.get('/:cityName&:countryCode',(req,res,next)=>{
