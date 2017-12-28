@@ -25,7 +25,7 @@ db.once('open', () => {
 
 // define controllers
 let indexController = require('./controllers/index'); // top level routes
-
+let apiController = require('./controllers/api');
 
 let app = express();
 
@@ -52,7 +52,7 @@ resave: true
 
 // redirect incoming requests routes to appropriate controllers
 app.use('/', indexController);
-
+app.use('/api',apiController);
 
 
 // Handle 404 Errors
@@ -64,7 +64,7 @@ app.use('/', indexController);
   // Handle 500 Errors
   app.use(function(error, req, res, next) {
       res.status(500);
-      res.send("INTERNAL SERVER ERROR");
+      res.send(error);
   });
 
 

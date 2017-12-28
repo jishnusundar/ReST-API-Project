@@ -3,8 +3,7 @@ let express = require('express');
 let app = express.Router();
 
 var obj = {
-    "Test key":"Test value",
-    "Status":"Success"
+    "Hello":"Welcome to the ReST API Project. This api endpoint gives information about cities in Canada. Get started at \'/api\'"
 }
 
 app.get('/',(req,res,next)=>{
