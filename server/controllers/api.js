@@ -10,7 +10,7 @@ var obj = {
     "Hello":"Welcome to the ReST API Project. This api endpoint gives information about cities in Canada. Get started at \'/api\'"
 }
 
-var APIKEY = require('../../api_key').API_KEY;
+var APIKEY = process.env.weatherApiKey || require('../../api_key').API_KEY;
 
 
 app.get('/:cityName&:countryCode',(req,res,next)=>{
