@@ -65,6 +65,7 @@ app.use('/api',apiController);
   app.use(function(error, req, res, next) {
       res.status(500);
       res.send(error);
+      console.log(error);
   });
 
 

@@ -17,7 +17,7 @@ var APIKEY = process.env.WEATHER_API_KEY;
 
 app.get('/:cityName&:countryCode',(req,res,next)=>{
 
-    cities.find({"name":req.params.cityName},(err,city)=>{
+    cities.find({"Name":req.params.cityName},(err,city)=>{
         if(err)
         {
             console.log("Error finding city");
@@ -37,10 +37,13 @@ app.get('/:cityName&:countryCode',(req,res,next)=>{
                     var temperature = data.main.temp;
                     var pressure = data.main.pressure;
                     */
+
+                    
+
                     thisCity.push({'weather_main':  data.weather[0].main});
                     thisCity.push({'weather_description' : data.weather[0].description});
-                    thisCity.push({'temperature' : data.main.temp});
-                    thisCity.push({'pressure': data.main.pressure});
+                    thisCity.push({'temperature' : (parseFloat(data.main.temp)-parseFloat(273.15)).toFixed(1) +" degree Celsius"});
+                    thisCity.push({'pressure': data.main.pressure+" hPa"});
                     
                   
                     return res.json(thisCity);
@@ -53,6 +56,24 @@ app.get('/:cityName&:countryCode',(req,res,next)=>{
         }
     });
      
+});
+
+app.post('/newcity',(req,res,next)=>{
+    console.log(req.body);
+   
+    cities.create(req.body,(creationError,creationResult)=>{
+        if(creationError)
+        {
+            console.log("Error inserting city:"+creationError);
+            res.send(500);
+        }
+        else
+        {
+            console.log("City created:"+creationResult);
+            res.send(200);
+        }
+    });
+    
 });
 
 module.exports = app;

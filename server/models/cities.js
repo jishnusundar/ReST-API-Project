@@ -2,7 +2,7 @@ let mongoose = require('mongoose');
 
 // model for Restaurant
 let citySchema = mongoose.Schema({
-    name: String,
+    Name: String,
     Description: String,
     Area:String,
     Population:String,
