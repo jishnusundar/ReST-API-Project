@@ -7,7 +7,9 @@ var obj = {
 }
 
 app.get('/',(req,res,next)=>{
-res.json(obj);
+res.render('index/home',{
+    
+});
 });
 
 module.exports = app;

@@ -1,0 +1,95 @@
+body {
+    background-image: url('weather.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+h1 {
+    align-items: center;
+    color: black;
+    font-family: Sans-serif;
+    font-size: 350%;
+    text-decoration: underline;
+    display: flex;
+    animation: fade-slide-down .7s ease-out forwards;
+  
+  justify-content: center;
+  overflow: hidden;
+  perspective: 100px;
+  position: relative;
+  
+  transform-style: preserve-3d;
+}
+
+p1 {
+    font-family: Sans-serif;
+    color: black;
+    font-size: 130%;
+    font-weight: bold;
+}
+li {
+    font-family: Sans-serif;
+    color: black;
+    font-size: 130%;
+    font-weight: bold;
+}
+
+@keyframes fade-slide-down {
+    0% {
+        opacity: 0;
+        transform: translateY(-4rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+h2 {
+    font-size: 200%;
+    font-family: Sans-serif;
+    color: brown;
+}
+
+h3,h4,h5,h6,h7 {
+    font-size: 150%;
+    font-family: Sans-serif;
+    color: brown;
+    text-decoration: underline;
+    
+}
+
+p5 {
+
+display:block;
+font-family:Sans-serif;
+font-size:200%;
+color: chocolate;
+}
+footer{
+display:block;
+font-family:Algerian;
+text-align:center;
+
+}
+
+h8 {
+    font-size: 150%;
+    font-family: Sans-serif;
+    color: brown;
+    text-decoration: underline;
+    display:block;
+}
+
+h9 {
+    font-size: 150%;
+    font-family: Sans-serif;
+    color: brown;
+    text-decoration: underline;
+    
+}
+
+
+body {
+    align-content: center;
+padding-left: 4em;
+}

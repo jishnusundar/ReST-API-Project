@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+        <title>Live City API</title>
+        <link rel="stylesheet" type="text/css" href="Content/Styles.css">
+    </head>
+
+<body>
+    <h1> LIVE CITY</h1>
+
+    <p1>
+        LiveCity is an API Service which shows information about cities around the world including their
+        real time weather update using HTTP requests.
+        <div />  This page is a guide for website and mobile developers who want to consume this service.
+    </p1>
+
+    <h2>
+
+        Consuming LiveCity API:
+    </h2>
+
+    <p2>
+
+        The 2 types of request supported by this service are:
+    </p2>
+
+    <h3>
+        HTTP GET:
+    </h3>
+
+    <p4>
+        <div /> The GET requests are intended to return information about the requested city.
+        <div />  LiveCity API accepts GET request in the following format:
+    </p4>
+    <br>
+    <br>
+    <p5>
+        <a href="https://livecityapi.herokuapp.com/api/Toronto&CA">Here's a link!</a>
+
+    </p5>
+    <h4>
+
+        Request Parameters:
+    </h4>
+    <ul class="a">
+        <li>City-name: Name of the city to query, with first letter <b>Upper Case</b></li>
+        <li>Country-code: Country where the city belongs to, usually the first 2 letters/abbreviation of a country</li>
+
+    </ul>
+    <h5>Response:</h5>
+
+    <p6>
+        The response will have a 200 (OK) status code for proper requests are made,
+        with the JSON result of the following structure:<br /> <br>
+
+    </p6>
+    <p7>
+    
+        <div>
+            {"_id": "5a4d3963219a8000004c0deb6",
+            "Name": "Toronto",
+            "Description": "Best City in Canada",
+        </div>
+        <div>
+            "Area": "3000 sq. km.",
+            "Population":"2000000",
+            "Attractions":[
+            {
+            "Place": "Dean Park"
+            }
+
+        </div><Div>
+            {
+            "Place": "Scarborough"
+            }
+            ]
+            },
+            {
+            "weather_main":"Clouds"
+            },
+        </Div>
+        <div />
+        <span style="">
+            {
+            "weather_description":"scattered clouds"
+            },
+
+
+        </span>
+
+        <div>
+            {
+
+            "temperature":"9 degrees Celsius"
+            },
+            {
+
+            "pressure":"1021 hPA"
+            }
+
+        </div>
+    </p7>
+    <br>
+    <h7>
+        Decoding the response:
+    </h7>
+
+    <ul class="b">
+        <li>The response is in the form of a JSON array. The main information about city lies in the value response[0]</li>
+        <li>response[0].Name: Name of the city</li>
+        <li>response[0].Description: A short description about the city</li>
+        <li>response[0].Area: Area of the city in sq. kilometer</li>
+        <li>response[0].Name.Attractions[]: An array having the main attractions of that city as a key-value pair object</li>
+        <li>response[1].weather_main: Main weather of the city</li>
+        <li>response[1].weather_description: A short description about the current weather</li>
+        <li>response[1].temperature: The current weather’s temperature in degree Celsius</li>
+        <li>response[1].pressure: The current pressure condition of the city, in hecto Pascals</li>
+    </ul>
+
+    <p8>
+        <div /> This service only returns main information about a city,
+        <div />only if we have the information about that city in our database.
+        <div /> Else, it will only return the current weather information.
+        <Div />To add information about a city you know, refer the next section
+        HTTP POST
+</p8>
+   <br>
+   <br>
+    <h8>HTTP POST:</h8>&nbsp;&nbsp;
+    <p>
+
+
+    </p>
+    The POST requests to this service are intended to receive information about cities 
+    <div/>from clients and to store it in our database.
+   <div/> LiveCity API accepts POST request to the following URL:
+    <a href="https://livecityapi.herokuapp.com/api/newcity">Here's a link!</a>
+    
+    
+    <br>
+    <br>
+    <h9>
+        <div>POST Parameters:</div>
+    </h9>
+    <p>
+        The data to be posted should be in a JSON format in the following structure:
+        &nbsp; <br> <br>
+        {"Name": "city name", <br>
+        "Description": "Short Description of City" <br>
+        "Area ":"numeric area sq km" <br>
+        "Population":  "numeric population" <br>
+        "Attractions":[{"place -name"},{"Place":"place-name"}]} <br>
+
+    </p>
+    <h7>
+
+        Response:
+    </h7>
+    <p>
+        The response will be a status code of 200 (OK)
+
+    </p>
+    <div/><footer>&copy; Copyright 2018, Live City Group</footer>
+</body>
+</html>
